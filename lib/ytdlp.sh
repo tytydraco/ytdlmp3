@@ -43,6 +43,8 @@ function ytdlp_audio() {
         --mtime \
         --extract-audio \
         --audio-format aac \
+        --audio-quality 0 \
+        -f "bestaudio/best" \
         --output "$OUT_DIR_AUDIO/%(playlist)s/%(title)s.%(ext)s" \
         "$1" || true
 }
