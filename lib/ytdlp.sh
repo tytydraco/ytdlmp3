@@ -12,13 +12,15 @@ function ytdlp_music() {
         --downloader aria2c \
         --downloader-args "aria2c:-x 16 -s 16 -k 1M" \
         --download-archive "${DOWNLOAD_ARCHIVE_MUSIC:-.archivemusic}" \
-        -N "${DOWNLOAD_N:-8}" \
+        -N 8 \
         --cookies-from-browser "${DOWNLOAD_COOKIES_FROM_BROWSER:-firefox}" \
         --windows-filenames \
         --no-write-playlist-metafiles \
         --mtime \
         --extract-audio \
-        --audio-format mp3 \
+        --audio-format aac \
+        --audio-quality 0 \
+        -f "bestaudio/best" \
         --output "$OUT_DIR_MUSIC/%(playlist)s/%(uploader)s - %(title)s.%(ext)s" \
         "$1" || true
 }
@@ -33,14 +35,14 @@ function ytdlp_audio() {
         --dateafter now-2weeks \
         --break-on-reject \
         --download-archive "${DOWNLOAD_ARCHIVE_AUDIO:-.archiveaudio}" \
-        -N "${DOWNLOAD_N:-8}" \
+        -N 8 \
         --playlist-end "${PLAYLIST_END:-5}" \
         --cookies-from-browser "${DOWNLOAD_COOKIES_FROM_BROWSER:-firefox}" \
         --windows-filenames \
         --no-write-playlist-metafiles \
         --mtime \
         --extract-audio \
-        --audio-format mp3 \
+        --audio-format aac \
         --output "$OUT_DIR_AUDIO/%(playlist)s/%(title)s.%(ext)s" \
         "$1" || true
 }
@@ -55,7 +57,7 @@ function ytdlp_video() {
         --dateafter now-2weeks \
         --break-on-reject \
         --download-archive "${DOWNLOAD_ARCHIVE_VIDEO:-.archivevideo}" \
-        -N "${DOWNLOAD_N:-8}" \
+        -N 8 \
         --playlist-end "${PLAYLIST_END:-5}" \
         --cookies-from-browser "${DOWNLOAD_COOKIES_FROM_BROWSER:-firefox}" \
         --windows-filenames \

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# URLs to download as MP3 (music).
+# URLs to download as AAC (music).
 URLS_MUSIC=(
     # Pop/RnB/Rap.
     "https://music.youtube.com/playlist?list=PLteo-8G34jul5Sln0GHtsQlNQib92YYdL&si=a_sW8QYkCIBQlXJf"
@@ -21,7 +21,7 @@ URLS_MUSIC=(
     "https://music.youtube.com/playlist?list=PLteo-8G34jumBUYURk_VW3Uy-EpBQ4B2Z&si=RuY_NSFqIuY6OoFJ"
 )
 
-# URLs to download as MP3 (past 5 items since two weeks ago).
+# URLs to download as AAC (past 5 items since two weeks ago).
 URLS_AUDIO=(
     # Mr. Nightmare.
     "https://www.youtube.com/@mrnightmare/videos"
@@ -140,7 +140,6 @@ URLS_VIDEO=(
 
 # Download parameters.
 PLAYLIST_END=5
-DOWNLOAD_N=8
 DOWNLOAD_ARCHIVE_MUSIC=".archivemusic"
 DOWNLOAD_ARCHIVE_AUDIO=".archiveaudio"
 DOWNLOAD_ARCHIVE_VIDEO=".archivevideo"
@@ -158,7 +157,6 @@ export URLS_MUSIC
 export URLS_AUDIO
 export URLS_VIDEO
 export PLAYLIST_END
-export DOWNLOAD_N
 export DOWNLOAD_ARCHIVE_MUSIC
 export DOWNLOAD_ARCHIVE_AUDIO
 export DOWNLOAD_ARCHIVE_VIDEO
