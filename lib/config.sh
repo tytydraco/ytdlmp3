@@ -150,8 +150,7 @@ DOWNLOAD_COOKIES_FROM_BROWSER="firefox"
 AUDIO_FORMAT="mp3"
 
 # AMV parameters (default values: 240x320, 30fps, rotated clockwise 90 degrees).
-WIDTH=240
-HEIGHT=320
+WIDTH=320
 FPS=30
 
 # Export the variables so they can be used in other scripts.
@@ -166,6 +165,5 @@ export DOWNLOAD_ARCHIVE_VIDEO
 export DOWNLOAD_COOKIES_FROM_BROWSER
 export AUDIO_FORMAT
 export WIDTH
-export HEIGHT
 export FPS
 export ROTATE

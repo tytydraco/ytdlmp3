@@ -17,8 +17,7 @@ function convert_amv() {
     fi
 
     # Set the default values for the parameters.
-    local width="${WIDTH:-240}"
-    local height="${HEIGHT:-320}"
+    local width="${WIDTH:-320}"
     local fps="${FPS:-30}"
 
     ffmpeg \
@@ -26,7 +25,7 @@ function convert_amv() {
         -map 0:v:0 \
         -map 0:a:0 \
         -f "amv" \
-        -vf "scale=${width}:${height}, crop=${width}:${height}" \
+        -vf "scale=${width}:-2" \
         -strict -1 \
         -c:v amv \
         -c:a adpcm_ima_amv \
