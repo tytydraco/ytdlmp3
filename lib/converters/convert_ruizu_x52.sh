@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function convert_ruizu_x52() {
-    [[ -z "${1:-}" ]] && exit 1
+    [[ -z "${1:-}" ]] && return 1
 
     local input_file="$1"
     local output_file="${input_file%.*}.amv"
@@ -9,7 +9,7 @@ function convert_ruizu_x52() {
 
     if [[ "$input_file" == "$output_file" ]]; then
         echo "[$0] Input is already converted: $input_file"
-        exit 0
+        return 0
     fi
 
     local fps="${FPS:-30}"

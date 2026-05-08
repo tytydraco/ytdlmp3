@@ -4,7 +4,7 @@ function convert_video() {
     # Assert that the input file is provided.
     if [[ -z "${1:-}" ]]; then
         echo "Usage: $0 <input_file>" >&2
-        exit 1
+        return 1
     fi
 
     local input_file="$1"
