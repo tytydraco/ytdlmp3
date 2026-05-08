@@ -65,7 +65,7 @@ function ytdlp_video() {
         --windows-filenames \
         --no-write-playlist-metafiles \
         --mtime \
-        --exec "convert_amv {}" \
+        --exec "convert_video {}" \
         --output "$OUT_DIR_VIDEO/%(playlist)s/%(title)s.%(ext)s" \
         "$1" || true
 }
