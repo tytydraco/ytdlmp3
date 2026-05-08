@@ -5,7 +5,7 @@ OUT_DIR_AUDIO="out/audio"
 OUT_DIR_VIDEO="out/video"
 OUT_DIR_MUSIC="out/music"
 
-# Download music as MP3 from a YouTube URL.
+# Download music as M4A from a YouTube URL.
 function ytdlp_music() {
     yt-dlp \
         -i \
@@ -25,7 +25,7 @@ function ytdlp_music() {
         "$1" || true
 }
 
-# Download video as MP3 from a YouTube URL.
+# Download video as M4A from a YouTube URL.
 function ytdlp_audio() {
     yt-dlp \
         -i \
@@ -49,7 +49,7 @@ function ytdlp_audio() {
         "$1" || true
 }
 
-# Download video as AMV from a YouTube URL.
+# Download video as AVI/AMV from a YouTube URL.
 function ytdlp_video() {
     yt-dlp \
         -i \

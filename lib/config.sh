@@ -148,9 +148,9 @@ DOWNLOAD_COOKIES_FROM_BROWSER="firefox"
 # Audio parameters.
 AUDIO_FORMAT="mp3"
 
-# Video parameters (default values: 240x320, 30fps, rotated clockwise 90 degrees).
-WIDTH=240
-HEIGHT=320
+# Video parameters.
+WIDTH=320
+HEIGHT=240
 FPS=30
 ROTATE=2        # 0 = off, 1 = clockwise, 2 = counter-clockwise.
 FORMAT="avi"    # AVI or AMV.
