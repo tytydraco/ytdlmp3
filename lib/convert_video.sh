@@ -61,7 +61,7 @@ function convert_amv() {
         -map 0:v:0 \
         -map 0:a:0 \
         -f "amv" \
-        -vf "scale=${width}:${height}:force_original_aspect_ratio=decrease,pad=${width}:${height}:(ow-iw)/2:(oh-ih)/2:black,${rotate_flag}" \
+        -vf "scale=${width}:${height}:force_original_aspect_ratio=decrease,${rotate_flag}" \
         -strict -1 \
         -c:v amv \
         -c:a adpcm_ima_amv \
