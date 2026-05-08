@@ -47,7 +47,7 @@ function convert_amv() {
     local width="${WIDTH:-320}"
     local height="${HEIGHT:-240}"
     local fps="${FPS:-30}"
-    local rotate="${ROTATE:-0}"
+    local rotate="${ROTATE:-2}"
     if [[ "$rotate" -eq 1 ]]; then
         local rotate_flag="transpose=1"
     elif [[ "$rotate" -eq 2 ]]; then

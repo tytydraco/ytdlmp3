@@ -149,6 +149,21 @@ DOWNLOAD_COOKIES_FROM_BROWSER="firefox"
 AUDIO_FORMAT="mp3"
 
 # Video parameters.
+# ------------------ PRESETS ------------------
+# AGPTEK M6 (AVI, 320x240, rotated 90 degrees counter-clockwise):
+#   WIDTH=320
+#   HEIGHT=240
+#   FPS=30
+#   ROTATE=2
+#   FORMAT="avi"
+# RUIZU X52 (AMV, 128x128):
+#   WIDTH=128
+#   HEIGHT=128
+#   FPS=30
+#   ROTATE=0
+#   FORMAT="amv"
+# ----------------------------------------------
+
 WIDTH=320
 HEIGHT=240
 FPS=30
