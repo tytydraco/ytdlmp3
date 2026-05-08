@@ -151,7 +151,10 @@ AUDIO_FORMAT="aac"
 
 # Video parameters.
 FPS=30
-FORMAT="avi"    # AVI or AMV.
+CONVERTERS=( # List of converters in lib/converters to use for video conversion.
+    "convert_agptek_m6"  # AVI, 320x240, rotated 90 degrees counter-clockwise.
+    "convert_ruizu_x52"  # AMV, 128x128.
+)
 
 # Export the variables so they can be used in other scripts.
 export URLS_MUSIC
@@ -165,4 +168,4 @@ export DOWNLOAD_COOKIES_FROM_BROWSER
 export MUSIC_FORMAT
 export AUDIO_FORMAT
 export FPS
-export FORMAT
+export CONVERTERS

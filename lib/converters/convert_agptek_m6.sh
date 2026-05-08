@@ -1,18 +1,13 @@
 #!/usr/bin/env bash
 
 function convert_agptek_m6() {
-    # Assert that the input file is provided.
-    if [[ -z "${1:-}" ]]; then
-        echo "Usage: $0 <input_file>" >&2
-        exit 1
-    fi
+    [[ -z "${1:-}" ]] && exit 1
 
     local input_file="$1"
     local output_file="${input_file%.*}.avi"
 
-    # Assert that the input file is not the output file.
     if [[ "$input_file" == "$output_file" ]]; then
-        echo "Input is already an AVI file, skipping: $input_file"
+        echo "[$0] Input is already converted: $input_file"
         exit 0
     fi
 

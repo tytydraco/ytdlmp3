@@ -8,22 +8,13 @@ function convert_video() {
     fi
 
     local input_file="$1"
-    local format="${FORMAT:-avi}"
 
-    case "$format" in
-        avi)
-            convert_avi "$input_file"
-            ;;
-        amv)
-            convert_amv "$input_file"
-            ;;
-        *)
-            echo "Unsupported FORMAT: ${format}"
-            echo "Expected FORMAT to be avi or amv."
-            exit 1
-            ;;
-    esac
+    # Convert the video using all specified converters.
+    for converter in "${CONVERTERS[@]}"; do
+        "$converter" "$input_file"
+    done
 
+    # Clean up the input file.
     rm -f "$input_file"
 }
 
