@@ -9,13 +9,17 @@ function convert_video() {
 
     local input_file="$1"
 
+    # Source the config since the call could be through a subshell.
+    # shellcheck disable=SC1091
+    source "${LIB_DIR}/config.sh"
+
     # Convert the video using all specified converters.
     for converter in "${CONVERTERS[@]}"; do
         "$converter" "$input_file"
     done
 
-    # Clean up the input file.
-    rm -f "$input_file"
+    # Clean up the input file if needed.
+    [[ "${KEEP_ORIGINAL_VIDEO:-false}" != "true" ]] && rm -f "$input_file"
 }
 
 export -f convert_video

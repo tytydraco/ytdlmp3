@@ -5,7 +5,10 @@ LIB_DIR="${SCRIPT_DIR}/lib"
 
 # Source all the library scripts.
 function source_libraries() {
-    find "${LIB_DIR}" -name "*.sh" -type f -exec source {} \;
+    while IFS= read -r -d '' lib_file; do
+        # shellcheck disable=SC1090
+        source "${lib_file}"
+    done < <(find "${LIB_DIR}" -type f -name "*.sh" -print0 | sort -z)
 }
 
 # Main function.
@@ -25,6 +28,9 @@ function main() {
         ytdlp_video "$url"
     done
 }
+
+export SCRIPT_DIR
+export LIB_DIR
 
 # Entry point.
 source_libraries
