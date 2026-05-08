@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# Output directories.
-OUT_DIR_AUDIO="out/audio"
-OUT_DIR_VIDEO="out/video"
-OUT_DIR_MUSIC="out/music"
-
 # Download music as M4A from a YouTube URL.
 function ytdlp_music() {
     yt-dlp \
@@ -70,7 +65,6 @@ function ytdlp_video() {
         "$1" || true
 }
 
-# Export the functions so they can be used in other scripts.
 export -f ytdlp_music
 export -f ytdlp_audio
 export -f ytdlp_video

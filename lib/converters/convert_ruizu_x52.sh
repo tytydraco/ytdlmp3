@@ -5,6 +5,7 @@ function convert_ruizu_x52() {
 
     local input_file="$1"
     local output_file="${input_file%.*}.amv"
+    local out_dir_video_ruizu_x52="${OUT_DIR_VIDEO}_ruizu_x52"
 
     if [[ "$input_file" == "$output_file" ]]; then
         echo "[$0] Input is already converted: $input_file"
@@ -27,6 +28,9 @@ function convert_ruizu_x52() {
         -r "$fps" \
         -block_size 735 \
         "$output_file"
+
+    mkdir -p "$out_dir_video_ruizu_x52"
+    mv "$output_file" "$out_dir_video_ruizu_x52"
 }
 
 export -f convert_ruizu_x52

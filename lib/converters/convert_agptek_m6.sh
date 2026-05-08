@@ -5,6 +5,7 @@ function convert_agptek_m6() {
 
     local input_file="$1"
     local output_file="${input_file%.*}.avi"
+    local out_dir_video_agptek_m6="${OUT_DIR_VIDEO}_agptek_m6"
 
     if [[ "$input_file" == "$output_file" ]]; then
         echo "[$0] Input is already converted: $input_file"
@@ -32,6 +33,9 @@ function convert_agptek_m6() {
         -ar 16000 \
         -r "$fps" \
         "$output_file"
+    
+    mkdir -p "$out_dir_video_agptek_m6"
+    mv "$output_file" "$out_dir_video_agptek_m6"
 }
 
 export -f convert_agptek_m6

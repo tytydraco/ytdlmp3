@@ -138,6 +138,11 @@ URLS_VIDEO=(
     "https://www.youtube.com/@ElvistheAlien/videos"
 )
 
+# Output directories.
+OUT_DIR_MUSIC="out/music"
+OUT_DIR_AUDIO="out/audio"
+OUT_DIR_VIDEO="out/video"
+
 # Download parameters.
 PLAYLIST_END=5
 DOWNLOAD_ARCHIVE_MUSIC=".archivemusic"
@@ -161,6 +166,9 @@ CONVERTERS=( # List of converters in lib/converters to use for video conversion.
 export URLS_MUSIC
 export URLS_AUDIO
 export URLS_VIDEO
+export OUT_DIR_MUSIC
+export OUT_DIR_AUDIO
+export OUT_DIR_VIDEO
 export PLAYLIST_END
 export DOWNLOAD_ARCHIVE_MUSIC
 export DOWNLOAD_ARCHIVE_AUDIO

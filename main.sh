@@ -13,15 +13,15 @@ function source_libraries() {
 
 # Main function.
 function main() {
-    # # Download the music for each URL.
-    # for url in "${URLS_MUSIC[@]}"; do
-    #     ytdlp_music "$url"
-    # done
+    # Download the music for each URL.
+    for url in "${URLS_MUSIC[@]}"; do
+        ytdlp_music "$url"
+    done
     
-    # # Download the audio for each URL.
-    # for url in "${URLS_AUDIO[@]}"; do
-    #     ytdlp_audio "$url"
-    # done
+    # Download the audio for each URL.
+    for url in "${URLS_AUDIO[@]}"; do
+        ytdlp_audio "$url"
+    done
 
     # Download the video for each URL.
     for url in "${URLS_VIDEO[@]}"; do
