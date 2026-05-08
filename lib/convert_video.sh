@@ -113,6 +113,8 @@ function convert_avi() {
         -c:v libx264 \
         -c:a pcm_s16le \
         -pix_fmt yuv420p \
+        -refs 1 \
+        -g 7 \
         -vb 1500000 \
         -ac 1 \
         -ar 16000 \
