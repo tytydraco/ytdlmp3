@@ -5,10 +5,7 @@ LIB_DIR="${SCRIPT_DIR}/lib"
 
 # Source all the library scripts.
 function source_libraries() {
-    for lib in "${LIB_DIR}"/*.sh; do
-        # shellcheck disable=SC1090
-        source "$lib"
-    done
+    find "${LIB_DIR}" -name "*.sh" -type f -exec source {} \;
 }
 
 # Main function.

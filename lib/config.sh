@@ -146,28 +146,11 @@ DOWNLOAD_ARCHIVE_VIDEO=".archivevideo"
 DOWNLOAD_COOKIES_FROM_BROWSER="firefox"
 
 # Audio parameters.
-AUDIO_FORMAT="mp3"
+MUSIC_FORMAT="aac"
+AUDIO_FORMAT="aac"
 
 # Video parameters.
-# ------------------ PRESETS ------------------
-# AGPTEK M6 (AVI, 320x240, rotated 90 degrees counter-clockwise):
-#   WIDTH=320
-#   HEIGHT=240
-#   FPS=30
-#   ROTATE=2
-#   FORMAT="avi"
-# RUIZU X52 (AMV, 128x128):
-#   WIDTH=128
-#   HEIGHT=128
-#   FPS=30
-#   ROTATE=0
-#   FORMAT="amv"
-# ----------------------------------------------
-
-WIDTH=320
-HEIGHT=240
 FPS=30
-ROTATE=2        # 0 = off, 1 = clockwise, 2 = counter-clockwise.
 FORMAT="avi"    # AVI or AMV.
 
 # Export the variables so they can be used in other scripts.
@@ -179,9 +162,7 @@ export DOWNLOAD_ARCHIVE_MUSIC
 export DOWNLOAD_ARCHIVE_AUDIO
 export DOWNLOAD_ARCHIVE_VIDEO
 export DOWNLOAD_COOKIES_FROM_BROWSER
+export MUSIC_FORMAT
 export AUDIO_FORMAT
-export WIDTH
-export HEIGHT
 export FPS
-export ROTATE
 export FORMAT

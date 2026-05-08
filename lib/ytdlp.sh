@@ -18,14 +18,14 @@ function ytdlp_music() {
         --no-write-playlist-metafiles \
         --mtime \
         --extract-audio \
-        --audio-format aac \
+        --audio-format "${MUSIC_FORMAT:-aac}" \
         --audio-quality 0 \
         -f "bestaudio/best" \
         --output "$OUT_DIR_MUSIC/%(playlist)s/%(uploader)s - %(title)s.%(ext)s" \
         "$1" || true
 }
 
-# Download video as M4A from a YouTube URL.
+# Download video as audio from a YouTube URL.
 function ytdlp_audio() {
     yt-dlp \
         -i \
@@ -42,14 +42,14 @@ function ytdlp_audio() {
         --no-write-playlist-metafiles \
         --mtime \
         --extract-audio \
-        --audio-format aac \
+        --audio-format "${AUDIO_FORMAT:-aac}" \
         --audio-quality 0 \
         -f "bestaudio/best" \
         --output "$OUT_DIR_AUDIO/%(playlist)s/%(title)s.%(ext)s" \
         "$1" || true
 }
 
-# Download video as AVI/AMV from a YouTube URL.
+# Download video and convert from a YouTube URL.
 function ytdlp_video() {
     yt-dlp \
         -i \
