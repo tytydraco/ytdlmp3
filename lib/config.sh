@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# URLs to download (music).
+# URLs to download (music):
 URLS_MUSIC=(
     # Pop/RnB/Rap.
     "https://music.youtube.com/playlist?list=PLteo-8G34jul5Sln0GHtsQlNQib92YYdL&si=a_sW8QYkCIBQlXJf"
@@ -21,7 +21,7 @@ URLS_MUSIC=(
     "https://music.youtube.com/playlist?list=PLteo-8G34jumBUYURk_VW3Uy-EpBQ4B2Z&si=RuY_NSFqIuY6OoFJ"
 )
 
-# URLs to download (audio, past 5 items since two weeks ago).
+# URLs to download (audio, past 5 items since two weeks ago):
 URLS_AUDIO=(
     # Mr. Nightmare.
     "https://www.youtube.com/@mrnightmare/videos"
@@ -87,7 +87,7 @@ URLS_AUDIO=(
     "https://www.youtube.com/@Nexpo/videos"
 )
 
-# URLs to download (video).
+# URLs to download (video):
 URLS_VIDEO=(
     # Midwest Safety.
     "https://www.youtube.com/@MidwestSafety/videos"
@@ -138,23 +138,19 @@ URLS_VIDEO=(
     "https://www.youtube.com/@ElvistheAlien/videos"
 )
 
-# Output directories.
+# Output directories:
 OUT_DIR_MUSIC="out/music"
 OUT_DIR_AUDIO="out/audio"
 OUT_DIR_VIDEO="out/video"
 
-# Download parameters.
-PLAYLIST_END=5
-DOWNLOAD_ARCHIVE_MUSIC=".archivemusic"
-DOWNLOAD_ARCHIVE_AUDIO=".archiveaudio"
-DOWNLOAD_ARCHIVE_VIDEO=".archivevideo"
+# Download parameters:
 BROWSER_COOKIES="firefox"
 
-# Audio parameters.
+# Audio parameters:
 MUSIC_FORMAT="aac"
 AUDIO_FORMAT="aac"
 
-# Video parameters.
+# Video parameters:
 KEEP_ORIGINAL_VIDEO=false
 FPS=30
 CONVERTERS=( # List of converters in lib/converters to use for video conversion.
@@ -162,7 +158,61 @@ CONVERTERS=( # List of converters in lib/converters to use for video conversion.
     "convert_ruizu_x52"  # AMV, 128x128.
 )
 
-# Export the variables so they can be used in other scripts.
+# Download configurations for yt-dlp:
+YTDLP_ARGS_MUSIC=(
+    --ignore-errors
+    --downloader aria2c
+    --downloader-args "aria2c:-x 16 -s 16 -k 1M"
+    --download-archive .archivemusic
+    --concurrent-fragments 8
+    --cookies-from-browser "$BROWSER_COOKIES"
+    --windows-filenames
+    --no-write-playlist-metafiles
+    --mtime
+    --extract-audio
+    --audio-format "$MUSIC_FORMAT"
+    --audio-quality 0
+    --format "bestaudio/best"
+    --output "$OUT_DIR_MUSIC/%(playlist)s/%(uploader)s - %(title)s.%(ext)s"
+)
+YTDLP_ARGS_AUDIO=(
+    --ignore-errors
+    --downloader aria2c
+    --downloader-args "aria2c:-x 16 -s 16 -k 1M"
+    --datebefore now
+    --dateafter now-2weeks
+    --break-on-reject
+    --download-archive .archiveaudio
+    --concurrent-fragments 8
+    --playlist-end 5
+    --cookies-from-browser "$BROWSER_COOKIES"
+    --windows-filenames
+    --no-write-playlist-metafiles
+    --mtime
+    --extract-audio
+    --audio-format "$AUDIO_FORMAT"
+    --audio-quality 0
+    --format "bestaudio/best"
+    --output "$OUT_DIR_AUDIO/%(playlist)s/%(title)s.%(ext)s"
+)
+YTDLP_ARGS_VIDEO=(
+    --ignore-errors
+    --downloader aria2c
+    --downloader-args "aria2c:-x 16 -s 16 -k 1M"
+    --datebefore now
+    --dateafter now-2weeks
+    --break-on-reject
+    --download-archive .archivevideo
+    --concurrent-fragments 8
+    --playlist-end 5
+    --cookies-from-browser "$BROWSER_COOKIES"
+    --windows-filenames
+    --no-write-playlist-metafiles
+    --mtime
+    --exec "convert_video {}"
+    --output "$OUT_DIR_VIDEO/%(playlist)s/%(title)s.%(ext)s"
+)
+
 export URLS_MUSIC
 export URLS_AUDIO
 export URLS_VIDEO
@@ -179,3 +229,6 @@ export AUDIO_FORMAT
 export KEEP_ORIGINAL_VIDEO
 export FPS
 export CONVERTERS
+export YTDLP_ARGS_MUSIC
+export YTDLP_ARGS_AUDIO
+export YTDLP_ARGS_VIDEO
