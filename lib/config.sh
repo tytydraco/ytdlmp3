@@ -151,8 +151,8 @@ BROWSER_COOKIES="firefox"
 KEEP_ORIGINAL_VIDEO=false
 FPS=30
 CONVERTERS=( # List of converters in lib/converters to use for video conversion.
-    "convert_agptek_m6"  # AVI, 320x240, rotated 90 degrees counter-clockwise.
-    "convert_ruizu_x52"  # AMV, 128x128.
+    "convert_video_agptek_m6"  # AVI, 320x240, rotated 90 degrees counter-clockwise.
+    "convert_video_ruizu_x52"  # AMV, 128x128.
 )
 
 # Download configurations for yt-dlp:

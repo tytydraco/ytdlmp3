@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-function convert_agptek_m6() {
+function convert_video_agptek_m6() {
     [[ -z "${1:-}" ]] && return 1
 
     local input_file="$1"
@@ -40,4 +40,4 @@ function convert_agptek_m6() {
         "$output_file"
 }
 
-export -f convert_agptek_m6
+export -f convert_video_agptek_m6
