@@ -146,7 +146,6 @@ OUT_DIR_VIDEO="out/video"
 
 # Download parameters:
 BROWSER_COOKIES="firefox"
-KEEP_ORIGINALS=false # Whether or not to keep the original file after converting.
 
 # Video parameters:
 FPS=30
@@ -227,7 +226,6 @@ export OUT_DIR_MUSIC
 export OUT_DIR_AUDIO
 export OUT_DIR_VIDEO
 export BROWSER_COOKIES
-export KEEP_ORIGINALS
 export FPS
 export CONVERTERS_AUDIO
 export CONVERTERS_VIDEO

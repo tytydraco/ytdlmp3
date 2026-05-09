@@ -30,7 +30,8 @@ function convert_file() {
         "$converter" "$input_file"
     done
 
-    [[ "${KEEP_ORIGINALS:-false}" != "true" ]] && rm -f "$input_file"
+    # Remove original.
+    rm -f "$input_file"
 }
 
 export -f convert_file
