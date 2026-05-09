@@ -146,13 +146,18 @@ OUT_DIR_VIDEO="out/video"
 
 # Download parameters:
 BROWSER_COOKIES="firefox"
+KEEP_ORIGINALS=false # Whether or not to keep the original file after converting.
 
 # Video parameters:
-KEEP_ORIGINAL_VIDEO=false
 FPS=30
-CONVERTERS=( # List of converters in lib/converters to use for video conversion.
-    "convert_video_agptek_m6"  # AVI, 320x240, rotated 90 degrees counter-clockwise.
-    "convert_video_ruizu_x52"  # AMV, 128x128.
+
+# Converters:
+CONVERTERS_AUDIO=( # List of converters in lib/converters/audio.
+    "convert_audio_aac" # ADTS container for AAC.
+)
+CONVERTERS_VIDEO=( # List of converters in lib/converters/video.
+    "convert_video_agptek_m6" # AVI, 320x240, rotated 90 degrees counter-clockwise.
+    "convert_video_ruizu_x52" # AMV, 128x128.
 )
 
 # Download configurations for yt-dlp:
@@ -171,6 +176,7 @@ YTDLP_ARGS_MUSIC=(
     --audio-format aac
     --audio-quality 0
     --format "bestaudio/best"
+    --exec 'bash -c "convert_file audio \"\$1\"" _ {}'
     --output "$OUT_DIR_MUSIC/%(playlist)s/%(uploader)s - %(title)s.%(ext)s"
 )
 YTDLP_ARGS_AUDIO=(
@@ -192,6 +198,7 @@ YTDLP_ARGS_AUDIO=(
     --audio-format aac
     --audio-quality 0
     --format "bestaudio/best"
+    --exec 'bash -c "convert_file audio \"\$1\"" _ {}'
     --output "$OUT_DIR_AUDIO/%(playlist)s/%(title)s.%(ext)s"
 )
 YTDLP_ARGS_VIDEO=(
@@ -209,7 +216,7 @@ YTDLP_ARGS_VIDEO=(
     --windows-filenames
     --no-write-playlist-metafiles
     --mtime
-    --exec 'bash -c "convert_video \"\$1\"" _ {}'
+    --exec 'bash -c "convert_file video \"\$1\"" _ {}'
     --output "$OUT_DIR_VIDEO/%(playlist)s/%(title)s.%(ext)s"
 )
 
@@ -220,9 +227,10 @@ export OUT_DIR_MUSIC
 export OUT_DIR_AUDIO
 export OUT_DIR_VIDEO
 export BROWSER_COOKIES
-export KEEP_ORIGINAL_VIDEO
+export KEEP_ORIGINALS
 export FPS
-export CONVERTERS
+export CONVERTERS_AUDIO
+export CONVERTERS_VIDEO
 export YTDLP_ARGS_MUSIC
 export YTDLP_ARGS_AUDIO
 export YTDLP_ARGS_VIDEO
