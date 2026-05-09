@@ -20,6 +20,7 @@ function convert_agptek_m6() {
     mkdir -p "$(dirname "$output_file")"
     wine lib/ffmpeg-mod.exe \
         -i "$input_file" \
+        -n \
         -map 0:v:0 \
         -map 0:a:0 \
         -profile:v baseline \

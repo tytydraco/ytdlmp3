@@ -20,6 +20,7 @@ function convert_ruizu_x52() {
     mkdir -p "$(dirname "$output_file")"
     ffmpeg \
         -i "$input_file" \
+        -n \
         -map 0:v:0 \
         -map 0:a:0 \
         -f "amv" \
