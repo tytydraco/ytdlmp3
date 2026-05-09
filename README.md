@@ -9,7 +9,9 @@ specific Chinese MP3 players (AGPTEK, RUIZU, etc.). These players typically
 support the AAC audio format, which offers the best lossy audio compared to
 the other supported formats. These players also support video (AVI, AMV) under
 very specific encoding conditions, so this project provides dedicated video
-converters for optimal encoding.
+converters for optimal encoding. An ADTS AAC audio converter is also provided.
+
+# Video Converters
 
 Currently provided device-specific video converters:
 
@@ -18,32 +20,8 @@ Currently provided device-specific video converters:
 
 # Usage
 
-1. Configure your conversion settings in [lib/config.sh](lib/config.sh).
+1. Configure your config in [lib/config.sh](lib/config.sh).
 2. Run `./main.sh`.
-
-# Configuration
-
-Under [lib/config.sh](lib/config.sh), configure these environmental variables:
-
-- `URLS_MUSIC`: A list of URLs for music.
-- `URLS_AUDIO`: A list of URLs for audio.
-- `URLS_VIDEO`: A list of URLs for video.
-- `OUT_DIR_MUSIC`: The music output directory.
-- `OUT_DIR_AUDIO`: The audio output directory.
-- `OUT_DIR_VIDEO`: The video output directory.
-- `BROWSER_COOKIES`: The browser to pull cookies from for `yt-dlp`.
-- `KEEP_ORIGINAL_VIDEO`: Whether to delete the original video file after converting.
-- `FPS`: The frame rate for video conversions.
-- `CONVERTERS`: A list of converters from [lib/converters](lib/converters) to use for converting videos. If multiple are specified, they will all be processed.
-- `YTDLP_ARGS_MUSIC`: A list of `yt-dlp` arguments for the `URLS_MUSIC` list.
-- `YTDLP_ARGS_AUDIO`: A list of `yt-dlp` arguments for the `URLS_AUDIO` list.
-- `YTDLP_ARGS_VIDEO`: A list of `yt-dlp` arguments for the `URLS_VIDEO` list.
-
-Converted videos will be placed under a separate video folder, suffixed by
-the device name.
-
-By default, `YTDLP_ARGS_AUDIO` and `YTDLP_ARGS_VIDEO` are set to download the
-5 most recent items from the past two weeks.
 
 # Cookies
 
