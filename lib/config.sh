@@ -158,6 +158,7 @@ CONVERTERS=( # List of converters in lib/converters to use for video conversion.
 # Download configurations for yt-dlp:
 YTDLP_ARGS_MUSIC=(
     --ignore-errors
+    --no-overwrites
     --downloader aria2c
     --downloader-args "aria2c:-x 16 -s 16 -k 1M"
     --download-archive .archivemusic
@@ -174,6 +175,7 @@ YTDLP_ARGS_MUSIC=(
 )
 YTDLP_ARGS_AUDIO=(
     --ignore-errors
+    --no-overwrites
     --downloader aria2c
     --downloader-args "aria2c:-x 16 -s 16 -k 1M"
     --datebefore now
@@ -194,6 +196,7 @@ YTDLP_ARGS_AUDIO=(
 )
 YTDLP_ARGS_VIDEO=(
     --ignore-errors
+    --no-overwrites
     --downloader aria2c
     --downloader-args "aria2c:-x 16 -s 16 -k 1M"
     --datebefore now
