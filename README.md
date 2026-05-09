@@ -41,6 +41,17 @@ and Firefox cookies bind-mounted, as well, so that `yt-dlp` can access them.
 - `./docker.sh run`: Executes `main.sh` and starts the program.
 - `./docker.sh clean`: Removes the container.
 
+# Project Structure
+
+- `docker.sh` builds, runs, and erases a container for the program (local execution, containerized dependencies).
+- `main.sh` sources all shell scripts under [lib/](lib/) to acquire functions and variables, including the config.
+- `lib/config.sh` provides the download content as well as universal variables for the conversions.
+- `lib/convert.sh` executes a conversion, either audio or video, based on the converters variable.
+- `lib/ffmpeg-mod.exe` is a vendor-patched `ffmpeg` with iframe/pframe/ipframe limits (required for AGPTEK M6).
+- `lib/converters/audio/convert_audio_aac.sh` converts audio into ADTS AAC.
+- `lib/converters/video/convert_video_agptek_m6.sh` converts video using `lib/ffmpeg-mod.exe` (wine).
+- `lib/converters/video/convert_video_ruizu_x52.sh` converts video using system `ffmpeg`.
+
 # Credit
 
 - [Patched FFMPEG from fdd4s](https://github.com/fdd4s/portable_music_player_avi_video_converter_tool_2025)
