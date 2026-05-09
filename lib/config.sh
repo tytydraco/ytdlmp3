@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# URLs to download as AAC (music).
+# URLs to download (music).
 URLS_MUSIC=(
     # Pop/RnB/Rap.
     "https://music.youtube.com/playlist?list=PLteo-8G34jul5Sln0GHtsQlNQib92YYdL&si=a_sW8QYkCIBQlXJf"
@@ -21,7 +21,7 @@ URLS_MUSIC=(
     "https://music.youtube.com/playlist?list=PLteo-8G34jumBUYURk_VW3Uy-EpBQ4B2Z&si=RuY_NSFqIuY6OoFJ"
 )
 
-# URLs to download as AAC (past 5 items since two weeks ago).
+# URLs to download (audio, past 5 items since two weeks ago).
 URLS_AUDIO=(
     # Mr. Nightmare.
     "https://www.youtube.com/@mrnightmare/videos"
@@ -87,7 +87,7 @@ URLS_AUDIO=(
     "https://www.youtube.com/@Nexpo/videos"
 )
 
-# URLs to download as AMV.
+# URLs to download (video).
 URLS_VIDEO=(
     # Midwest Safety.
     "https://www.youtube.com/@MidwestSafety/videos"

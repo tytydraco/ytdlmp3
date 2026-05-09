@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# Download music as M4A from a YouTube URL.
 function ytdlp_music() {
     yt-dlp \
         -i \
@@ -20,7 +19,6 @@ function ytdlp_music() {
         "$1" || true
 }
 
-# Download video as audio from a YouTube URL.
 function ytdlp_audio() {
     yt-dlp \
         -i \
@@ -44,7 +42,6 @@ function ytdlp_audio() {
         "$1" || true
 }
 
-# Download video and convert from a YouTube URL.
 function ytdlp_video() {
     yt-dlp \
         -i \

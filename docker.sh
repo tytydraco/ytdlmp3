@@ -13,7 +13,7 @@ case "$1" in
             -v "$HOME/.mozilla/firefox:/home/ubuntu/.mozilla/firefox:ro" \
             --workdir /app \
             ytdlmp3:latest \
-            bash main.sh
+            bash /app/main.sh
         ;;
     clean)
         docker rmi ytdlmp3:latest
