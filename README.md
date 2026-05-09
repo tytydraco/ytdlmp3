@@ -35,7 +35,7 @@ Under [lib/config.sh](lib/config.sh), configure these environmental variables:
 - `DOWNLOAD_ARCHIVE_MUSIC`: The archive file for music.
 - `DOWNLOAD_ARCHIVE_AUDIO`: The archive file for audio.
 - `DOWNLOAD_ARCHIVE_VIDEO`: The archive file for videos.
-- `DOWNLOAD_COOKIES_FROM_BROWSER`: The browser to pull cookies from.
+- `BROWSER_COOKIES`: The browser to pull cookies from.
 - `MUSIC_FORMAT`: The audio format for music (aac, mp3, etc.).
 - `AUDIO_FORMAT`: The audio format for audio (aac, mp3, etc.).
 - `KEEP_ORIGINAL_VIDEO`: Whether to delete the original video file when converting videos.

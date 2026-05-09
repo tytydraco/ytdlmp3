@@ -7,7 +7,7 @@ function ytdlp_music() {
         --downloader-args "aria2c:-x 16 -s 16 -k 1M" \
         --download-archive "${DOWNLOAD_ARCHIVE_MUSIC:-.archivemusic}" \
         -N 8 \
-        --cookies-from-browser "${DOWNLOAD_COOKIES_FROM_BROWSER:-firefox}" \
+        --cookies-from-browser "${BROWSER_COOKIES:-firefox}" \
         --windows-filenames \
         --no-write-playlist-metafiles \
         --mtime \
@@ -30,7 +30,7 @@ function ytdlp_audio() {
         --download-archive "${DOWNLOAD_ARCHIVE_AUDIO:-.archiveaudio}" \
         -N 8 \
         --playlist-end "${PLAYLIST_END:-5}" \
-        --cookies-from-browser "${DOWNLOAD_COOKIES_FROM_BROWSER:-firefox}" \
+        --cookies-from-browser "${BROWSER_COOKIES:-firefox}" \
         --windows-filenames \
         --no-write-playlist-metafiles \
         --mtime \
@@ -53,7 +53,7 @@ function ytdlp_video() {
         --download-archive "${DOWNLOAD_ARCHIVE_VIDEO:-.archivevideo}" \
         -N 8 \
         --playlist-end "${PLAYLIST_END:-5}" \
-        --cookies-from-browser "${DOWNLOAD_COOKIES_FROM_BROWSER:-firefox}" \
+        --cookies-from-browser "${BROWSER_COOKIES:-firefox}" \
         --windows-filenames \
         --no-write-playlist-metafiles \
         --mtime \
