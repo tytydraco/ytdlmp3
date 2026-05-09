@@ -205,7 +205,7 @@ YTDLP_ARGS_VIDEO=(
     --windows-filenames
     --no-write-playlist-metafiles
     --mtime
-    --exec "convert_video {}"
+    --exec 'bash -c "convert_video {}"'
     --output "$OUT_DIR_VIDEO/%(playlist)s/%(title)s.%(ext)s"
 )
 
