@@ -4,11 +4,7 @@ function convert_video_ruizu_x52() {
     [[ -z "${1:-}" ]] && return 1
 
     local input_file="$1"
-    local out_dir_video_ruizu_x52="${OUT_DIR_VIDEO}_ruizu_x52"
-
-    local relative_path
-    relative_path="$(realpath --relative-to="${OUT_DIR_VIDEO}" "$input_file")"
-    local output_file="${out_dir_video_ruizu_x52}/${relative_path%.*}.amv"
+    local output_file="${input_file%.*}.amv"
 
     if [[ "$input_file" == "$output_file" ]]; then
         echo "[$0] Input is already converted: $input_file"
