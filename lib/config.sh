@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2016
 
 # URLs to download (music):
 URLS_MUSIC=(
@@ -205,7 +206,7 @@ YTDLP_ARGS_VIDEO=(
     --windows-filenames
     --no-write-playlist-metafiles
     --mtime
-    --exec 'bash -c "convert_video {}"'
+    --exec 'bash -c "convert_video \"\$1\"" _ {}'
     --output "$OUT_DIR_VIDEO/%(playlist)s/%(title)s.%(ext)s"
 )
 
