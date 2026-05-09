@@ -146,10 +146,6 @@ OUT_DIR_VIDEO="out/video"
 # Download parameters:
 BROWSER_COOKIES="firefox"
 
-# Audio parameters:
-MUSIC_FORMAT="aac"
-AUDIO_FORMAT="aac"
-
 # Video parameters:
 KEEP_ORIGINAL_VIDEO=false
 FPS=30
@@ -170,7 +166,7 @@ YTDLP_ARGS_MUSIC=(
     --no-write-playlist-metafiles
     --mtime
     --extract-audio
-    --audio-format "$MUSIC_FORMAT"
+    --audio-format aac
     --audio-quality 0
     --format "bestaudio/best"
     --output "$OUT_DIR_MUSIC/%(playlist)s/%(uploader)s - %(title)s.%(ext)s"
@@ -190,7 +186,7 @@ YTDLP_ARGS_AUDIO=(
     --no-write-playlist-metafiles
     --mtime
     --extract-audio
-    --audio-format "$AUDIO_FORMAT"
+    --audio-format aac
     --audio-quality 0
     --format "bestaudio/best"
     --output "$OUT_DIR_AUDIO/%(playlist)s/%(title)s.%(ext)s"
@@ -219,13 +215,7 @@ export URLS_VIDEO
 export OUT_DIR_MUSIC
 export OUT_DIR_AUDIO
 export OUT_DIR_VIDEO
-export PLAYLIST_END
-export DOWNLOAD_ARCHIVE_MUSIC
-export DOWNLOAD_ARCHIVE_AUDIO
-export DOWNLOAD_ARCHIVE_VIDEO
 export BROWSER_COOKIES
-export MUSIC_FORMAT
-export AUDIO_FORMAT
 export KEEP_ORIGINAL_VIDEO
 export FPS
 export CONVERTERS

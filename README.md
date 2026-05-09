@@ -7,8 +7,8 @@ YT-DLP utility for MP3 players.
 This program downloads online content using `yt-dlp` and converts it for
 specific Chinese MP3 players (AGPTEK, RUIZU, etc.). These players typically
 support the AAC audio format, which offers the best lossy audio compared to
-the other supported formats. These players also support video under very
-specific encoding conditions, so this project provides dedicated video
+the other supported formats. These players also support video (AVI, AMV) under
+very specific encoding conditions, so this project provides dedicated video
 converters for optimal encoding.
 
 Currently provided device-specific video converters:
@@ -25,22 +25,25 @@ Currently provided device-specific video converters:
 
 Under [lib/config.sh](lib/config.sh), configure these environmental variables:
 
-- `URLS_MUSIC`: A list of URLs for audio. Optimal for music.
-- `URLS_AUDIO`: A list of URLs for audio, the most recent `PLAYLIST_END` items within the past two weeks. Optimal for podcasts, audio books, or other content that will be frequently refreshed.
-- `URLS_VIDEO`: A list of URLs for video, the most recent `PLAYLIST_END` items within the past two weeks. Optimal for podcasts, audio books, or other content that will be frequently refreshed.
+- `URLS_MUSIC`: A list of URLs for music.
+- `URLS_AUDIO`: A list of URLs for audio.
+- `URLS_VIDEO`: A list of URLs for video.
 - `OUT_DIR_MUSIC`: The music output directory.
 - `OUT_DIR_AUDIO`: The audio output directory.
 - `OUT_DIR_VIDEO`: The video output directory.
-- `PLAYLIST_END`: The number of items to download for `URLS_AUDIO` and `URLS_VIDEO`.
-- `DOWNLOAD_ARCHIVE_MUSIC`: The archive file for music.
-- `DOWNLOAD_ARCHIVE_AUDIO`: The archive file for audio.
-- `DOWNLOAD_ARCHIVE_VIDEO`: The archive file for videos.
-- `BROWSER_COOKIES`: The browser to pull cookies from.
-- `MUSIC_FORMAT`: The audio format for music (aac, mp3, etc.).
-- `AUDIO_FORMAT`: The audio format for audio (aac, mp3, etc.).
-- `KEEP_ORIGINAL_VIDEO`: Whether to delete the original video file when converting videos.
-- `FPS`: The frame rate for videos.
-- `CONVERTERS`: A list of converters from [lib/converters](lib/converters) to use for videos. If multiple are specified, it will use both. The output directory is `${OUT_DIR_VIDEO}_<device name>`.
+- `BROWSER_COOKIES`: The browser to pull cookies from for `yt-dlp`.
+- `KEEP_ORIGINAL_VIDEO`: Whether to delete the original video file after converting.
+- `FPS`: The frame rate for video conversions.
+- `CONVERTERS`: A list of converters from [lib/converters](lib/converters) to use for converting videos. If multiple are specified, they will all be processed.
+- `YTDLP_ARGS_MUSIC`: A list of `yt-dlp` arguments for the `URLS_MUSIC` list.
+- `YTDLP_ARGS_AUDIO`: A list of `yt-dlp` arguments for the `URLS_AUDIO` list.
+- `YTDLP_ARGS_VIDEO`: A list of `yt-dlp` arguments for the `URLS_VIDEO` list.
+
+Converted videos will be placed under a separate video folder, suffixed by
+the device name.
+
+By default, `YTDLP_ARGS_AUDIO` and `YTDLP_ARGS_VIDEO` are set to download the
+5 most recent items from the past two weeks.
 
 # Cookies
 
