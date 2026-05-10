@@ -17,7 +17,7 @@ case "$1" in
             --volume "$HOME/.mozilla/firefox:/root/.mozilla/firefox:ro" \
             --volume "$SCRIPT_DIR/lib/config.sh:/app/lib/config.sh:ro" \
             ytdlmp3:latest
-        docker cp ytdlmp3:/app/out out_docker
+        docker cp ytdlmp3:/app/out docker_out
         docker rm -f ytdlmp3
         ;;
     clean)
