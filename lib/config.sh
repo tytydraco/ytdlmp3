@@ -63,9 +63,6 @@ URLS_AUDIO=(
     # CreepCast.
     "https://www.youtube.com/@CreepPodcast/videos"
 
-    # Horses.
-    "https://www.youtube.com/@HorsesOnYT/videos"
-
     # Coffeezilla.
     "https://www.youtube.com/@Coffeezilla/videos"
 
@@ -86,15 +83,30 @@ URLS_AUDIO=(
 
     # Nexpo.
     "https://www.youtube.com/@Nexpo/videos"
+
+    # Elvis The Alien.
+    "https://www.youtube.com/@ElvistheAlien/videos"
+
+    # Drew Gooden.
+    "https://www.youtube.com/@drewisgooden/videos"
+
+    # Law&Crime Investigates.
+    "https://www.youtube.com/@LawAndCrimeInvestigates/videos"
+
+    # Vox.
+    "https://www.youtube.com/@Vox/videos"
+
+    # ibz.
+    "https://www.youtube.com/@ibz/videos"
+
+    # poi.
+    "https://www.youtube.com/@WEIRDpoi/videos"
 )
 
 # URLs to download (video):
 URLS_VIDEO=(
     # Midwest Safety.
     "https://www.youtube.com/@MidwestSafety/videos"
-
-    # Vox.
-    "https://www.youtube.com/@Vox/videos"
 
     # penguinz0.
     "https://www.youtube.com/@penguinz0/videos"
@@ -108,23 +120,11 @@ URLS_VIDEO=(
     # Bub Games.
     "https://www.youtube.com/@BubGames/videos"
 
-    # Law&Crime Investigates.
-    "https://www.youtube.com/@LawAndCrimeInvestigates/videos"
-
-    # ibz.
-    "https://www.youtube.com/@ibz/videos"
-
-    # poi.
-    "https://www.youtube.com/@WEIRDpoi/videos"
-
     # Redlyne.
     "https://www.youtube.com/@Redlyne_/videos"
 
     # Seneral Gam.
     "https://www.youtube.com/@SeneralGam/videos"
-
-    # Drew Gooden.
-    "https://www.youtube.com/@drewisgooden/videos"
 
     # Metta Beshay.
     "https://www.youtube.com/@Mettabeshay/videos"
@@ -134,9 +134,6 @@ URLS_VIDEO=(
 
     # Incognito Mode.
     "https://www.youtube.com/@IHincognitoMode/videos"
-
-    # Elvis The Alien.
-    "https://www.youtube.com/@ElvistheAlien/videos"
 )
 
 # Output directories:
