@@ -147,16 +147,13 @@ OUT_DIR_VIDEO="out/video"
 # Download parameters:
 BROWSER_COOKIES="firefox"
 
-# Video parameters:
-FPS=30
-
 # Converters:
 CONVERTERS_AUDIO=( # List of converters in lib/converters/audio.
     "convert_audio_adts_aac" # ADTS container for AAC.
 )
 CONVERTERS_VIDEO=( # List of converters in lib/converters/video.
-    "convert_video_agptek_m6" # AVI, 320x240, rotated 90 degrees counter-clockwise.
-    "convert_video_ruizu_x52" # AMV, 128x128.
+    "convert_video_agptek_m6_avi" # 30FPS AVI, 320x240, rotated 90 degrees counter-clockwise.
+    "convert_video_ruizu_x52_amv" # 30FPS AMV, 128x128.
 )
 
 # Download configurations for yt-dlp:

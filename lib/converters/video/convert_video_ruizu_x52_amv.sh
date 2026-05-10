@@ -7,15 +7,13 @@ function convert_video_ruizu_x52() {
     local out_dir
     local output_file
 
-    out_dir="$(dirname "$input_file")/ruizu_x52"
+    out_dir="$(dirname "$input_file")/ruizu_x52_amv"
     output_file="${out_dir}/$(basename "${input_file%.*}").amv"
 
     if [[ "$input_file" == "$output_file" ]]; then
         echo "[$0] Input is already converted: $input_file"
         return 0
     fi
-
-    local fps="${FPS:-30}"
 
     mkdir -p "$out_dir"
     ffmpeg \
@@ -30,7 +28,7 @@ function convert_video_ruizu_x52() {
         -c:a adpcm_ima_amv \
         -ac 1 \
         -ar 22050 \
-        -r "$fps" \
+        -r 30 \
         -block_size 735 \
         "$output_file"
 }
