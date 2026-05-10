@@ -152,7 +152,7 @@ FPS=30
 
 # Converters:
 CONVERTERS_AUDIO=( # List of converters in lib/converters/audio.
-    "convert_audio_aac" # ADTS container for AAC.
+    "convert_audio_adts_aac" # ADTS container for AAC.
 )
 CONVERTERS_VIDEO=( # List of converters in lib/converters/video.
     "convert_video_agptek_m6" # AVI, 320x240, rotated 90 degrees counter-clockwise.

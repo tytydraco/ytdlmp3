@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-function convert_audio_aac() {
+function convert_audio_adts_aac() {
     [[ -z "${1:-}" ]] && return 1
 
     local input_file="$1"
@@ -19,4 +19,4 @@ function convert_audio_aac() {
         "$output_file"
 }
 
-export -f convert_audio_aac
+export -f convert_audio_adts_aac

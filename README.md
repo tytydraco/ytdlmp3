@@ -45,7 +45,7 @@ changes. Firefox cookies are bind-mounted, as well, so that `yt-dlp` can access 
 - `lib/config.sh` provides the download content as well as universal variables for the conversions.
 - `lib/convert.sh` executes a conversion, either audio or video, based on the converters variable.
 - `lib/ffmpeg-mod.exe` is a vendor-patched `ffmpeg` with iframe/pframe/ipframe limits (required for AGPTEK M6).
-- `lib/converters/audio/convert_audio_aac.sh` converts audio into ADTS AAC.
+- `lib/converters/audio/convert_audio_adts_aac.sh` converts audio into ADTS AAC.
 - `lib/converters/video/convert_video_agptek_m6.sh` converts video using `lib/ffmpeg-mod.exe` (wine).
 - `lib/converters/video/convert_video_ruizu_x52.sh` converts video using system `ffmpeg`.
 
