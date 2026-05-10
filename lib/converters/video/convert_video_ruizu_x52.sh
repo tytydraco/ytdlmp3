@@ -23,7 +23,7 @@ function convert_video_ruizu_x52() {
         -n \
         -map 0:v:0 \
         -map 0:a:0 \
-        -f "amv" \
+        -f amv \
         -vf "scale=128:128:force_original_aspect_ratio=decrease" \
         -strict -1 \
         -c:v amv \
