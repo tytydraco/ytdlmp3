@@ -177,8 +177,6 @@ YTDLP_ARGS_AUDIO=(
     --no-overwrites
     --downloader aria2c
     --downloader-args "aria2c:-x 16 -s 16 -k 1M"
-    --datebefore now
-    --dateafter now-2weeks
     --break-on-reject
     --download-archive .archiveaudio
     --concurrent-fragments 8
@@ -199,8 +197,6 @@ YTDLP_ARGS_VIDEO=(
     --no-overwrites
     --downloader aria2c
     --downloader-args "aria2c:-x 16 -s 16 -k 1M"
-    --datebefore now
-    --dateafter now-2weeks
     --break-on-reject
     --download-archive .archivevideo
     --concurrent-fragments 8
