@@ -4,7 +4,7 @@ function convert_video_ruizu_x52_amv() {
     [[ -z "${1:-}" ]] && return 1
 
     local input_file="$1"
-    local output_file="${input_file%.*}.amv"
+    local output_file="${input_file%.*}.ruizu_x52.amv"
 
     if [[ "$input_file" == "$output_file" ]]; then
         echo "[$0] Input is already converted: $input_file"

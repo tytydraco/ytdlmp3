@@ -4,7 +4,7 @@ function convert_video_agptek_m6_avi() {
     [[ -z "${1:-}" ]] && return 1
 
     local input_file="$1"
-    local output_file="${input_file%.*}.avi"
+    local output_file="${input_file%.*}.agptek_m6.avi"
 
     if [[ "$input_file" == "$output_file" ]]; then
         echo "[$0] Input is already converted: $input_file"
