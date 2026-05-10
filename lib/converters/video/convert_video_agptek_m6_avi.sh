@@ -4,18 +4,13 @@ function convert_video_agptek_m6() {
     [[ -z "${1:-}" ]] && return 1
 
     local input_file="$1"
-    local out_dir
-    local output_file
-
-    out_dir="$(dirname "$input_file")/agptek_m6_avi"
-    output_file="${out_dir}/$(basename "${input_file%.*}").avi"
+    local output_file="${input_file%.*}.avi"
 
     if [[ "$input_file" == "$output_file" ]]; then
         echo "[$0] Input is already converted: $input_file"
         return 0
     fi
 
-    mkdir -p "$out_dir"
     wine lib/ffmpeg-mod.exe \
         -i "$input_file" \
         -n \
