@@ -29,15 +29,12 @@ YouTube cookies are pulled from Firefox on the host machine.
 
 # Docker
 
-A `Dockerfile` is bundled for dependency fulfillment. The resulting files
-do not need to be copied from the container to the host, as the project will
-be bind-mounted to the container's working directory.
+A `Dockerfile` is bundled for dependency management. `docker.sh` can be used to
+build the image and start the conversion process. `lib/config.sh` will be
+bind-mounted so that the image does not need to be rebuilt when the config
+changes. Firefox cookies are bind-mounted, as well, so that `yt-dlp` can access them.
 
-`docker.sh` can be used to build the image and start the conversion process.
-The user is set to match the host, so permissions and ownership are preserved,
-and Firefox cookies bind-mounted, as well, so that `yt-dlp` can access them.
-
-- `./docker.sh build`: You only need to run at least once before `run`.
+- `./docker.sh build`: You only needs to be run once.
 - `./docker.sh run`: Executes `main.sh` and starts the program.
 - `./docker.sh clean`: Removes the container.
 

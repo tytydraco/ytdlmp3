@@ -29,4 +29,7 @@ ENV DENO_INSTALL=/usr/local
 RUN curl -fsSL https://deno.land/install.sh | sh
 ENV PATH="${DENO_INSTALL}/bin:${PATH}"
 
+COPY . /app
 WORKDIR /app
+
+ENTRYPOINT [ "bash", "main.sh" ]

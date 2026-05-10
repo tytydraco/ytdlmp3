@@ -1,22 +1,27 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 case "$1" in
     build)
-        docker build --no-cache -t ytdlmp3:latest .
+        docker build \
+            --no-cache \
+            --tag ytdlmp3:latest \
+            .
         ;;
     run)
         docker run \
-            --rm \
-            -it \
-            --user "$(id -u):$(id -g)" \
-            -v "$PWD:/app" \
-            -v "$HOME/.mozilla/firefox:/home/ubuntu/.mozilla/firefox:ro" \
-            --workdir /app \
-            ytdlmp3:latest \
-            bash /app/main.sh
+            --name ytdlmp3 \
+            --interactive \
+            --tty \
+            --volume "$HOME/.mozilla/firefox:/root/.mozilla/firefox:ro" \
+            --volume "$SCRIPT_DIR/lib/config.sh:/app/lib/config.sh:ro" \
+            ytdlmp3:latest
+        docker cp ytdlmp3:/app/out out_docker
+        docker rm -f ytdlmp3
         ;;
     clean)
-        docker rmi ytdlmp3:latest
+        docker image rm ytdlmp3:latest
         ;;
     *)
         echo "Usage: $0 <build|run|clean>"
