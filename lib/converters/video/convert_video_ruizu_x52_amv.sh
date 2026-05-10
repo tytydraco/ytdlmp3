@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-function convert_video_ruizu_x52() {
+function convert_video_ruizu_x52_amv() {
     [[ -z "${1:-}" ]] && return 1
 
     local input_file="$1"
@@ -28,4 +28,4 @@ function convert_video_ruizu_x52() {
         "$output_file"
 }
 
-export -f convert_video_ruizu_x52
+export -f convert_video_ruizu_x52_amv
