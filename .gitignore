@@ -1,4 +1,3 @@
 out/
-.archivemusic
-.archiveaudio
-.archivevideo
+docker_out/
+.archive*
