@@ -3,17 +3,17 @@
 
 # URLs to download (music):
 URLS_MUSIC=(
-    "https://music.youtube.com/playlist?list=..."
+    # "https://music.youtube.com/playlist?list=..."
 )
 
 # URLs to download (audio, past 5 items since two weeks ago):
 URLS_AUDIO=(
-    "https://music.youtube.com/playlist?list=..."
+    # "https://music.youtube.com/playlist?list=..."
 )
 
 # URLs to download (video):
 URLS_VIDEO=(
-    "https://music.youtube.com/playlist?list=..."
+    # "https://music.youtube.com/playlist?list=..."
 )
 
 # Output directories:
