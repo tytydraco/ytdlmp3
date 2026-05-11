@@ -20,7 +20,7 @@ Currently provided device-specific video converters:
 
 # Usage
 
-1. Configure your config in [lib/config.sh](lib/config.sh).
+1. Configure your config in [config.sh](config.sh).
 2. Run `./main.sh`.
 
 # Cookies
@@ -30,7 +30,7 @@ YouTube cookies are pulled from Firefox on the host machine.
 # Docker
 
 A `Dockerfile` is bundled for dependency management. `docker.sh` can be used to
-build the image and start the conversion process. `lib/config.sh` will be
+build the image and start the conversion process. `config.sh` will be
 bind-mounted so that the image does not need to be rebuilt when the config
 changes. Firefox cookies are bind-mounted, as well, so that `yt-dlp` can access them.
 
@@ -42,7 +42,7 @@ changes. Firefox cookies are bind-mounted, as well, so that `yt-dlp` can access 
 
 - `docker.sh` builds, runs, and erases a container for the program (local execution, containerized dependencies).
 - `main.sh` sources all shell scripts under [lib/](lib/) to acquire functions and variables, including the config.
-- `lib/config.sh` provides the download content as well as universal variables for the conversions.
+- `config.sh` provides the download content as well as universal variables for the conversions.
 - `lib/convert.sh` executes a conversion, either audio or video, based on the converters variable.
 - `lib/ffmpeg-mod.exe` is a vendor-patched `ffmpeg` with iframe/pframe/ipframe limits (required for AGPTEK M6).
 - `lib/converters/audio/convert_audio_adts_aac.sh` converts audio into ADTS AAC.

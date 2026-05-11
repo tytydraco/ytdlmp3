@@ -5,7 +5,7 @@ function convert_file() {
 
     # Source the config since the call will be through a subshell.
     # shellcheck disable=SC1091
-    source "${LIB_DIR}/config.sh"
+    source "${SCRIPT_DIR}/config.sh"
 
     local mode="$1"
     local input_file="$2"

@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC1090
+# shellcheck disable=SC1091
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LIB_DIR="${SCRIPT_DIR}/lib"
 
 function source_libraries() {
     while IFS= read -r -d '' lib_file; do
-        # shellcheck disable=SC1090
+        
         source "${lib_file}"
     done < <(find "$LIB_DIR" -type f -name "*.sh" -print0 | sort -z)
 }
 
 function main() {
+    source "$SCRIPT_DIR/config.sh"
     source_libraries
 
     # Download the music for each URL.
