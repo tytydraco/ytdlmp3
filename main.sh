@@ -4,6 +4,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LIB_DIR="${SCRIPT_DIR}/lib"
+CONFIG_FILE="$SCRIPT_DIR/config.sh"
 
 function source_libraries() {
     while IFS= read -r -d '' lib_file; do
@@ -13,7 +14,12 @@ function source_libraries() {
 }
 
 function main() {
-    source "$SCRIPT_DIR/config.sh"
+    if [[ ! -f "$CONFIG_FILE" ]]; then
+        echo "No config.sh file found."
+        exit 1
+    fi
+
+    source "$CONFIG_FILE"
     source_libraries
 
     # Download the music for each URL.
@@ -34,6 +40,7 @@ function main() {
 
 export SCRIPT_DIR
 export LIB_DIR
+export CONFIG_FILE
 
 # Execute the program.
 [[ "${BASH_SOURCE[0]}" == "$0" ]] && main

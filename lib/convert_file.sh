@@ -4,8 +4,8 @@ function convert_file() {
     [[ -z "${1:-}" ]] && return 1
 
     # Source the config since the call will be through a subshell.
-    # shellcheck disable=SC1091
-    source "${SCRIPT_DIR}/config.sh"
+    # shellcheck disable=SC1090
+    source "$CONFIG_FILE"
 
     local mode="$1"
     local input_file="$2"
