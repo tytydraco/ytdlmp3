@@ -209,6 +209,10 @@ YTDLP_ARGS_VIDEO=(
     --output "$OUT_DIR_VIDEO/%(playlist)s/%(title)s.%(ext)s"
 )
 
+URLS_AUDIO=("https://youtu.be/coX4duwUCpw?si=xWjrKqdhINyR45KJ")
+URLS_VIDEO=("https://youtu.be/coX4duwUCpw?si=xWjrKqdhINyR45KJ")
+URLS_MUSIC=("https://youtu.be/coX4duwUCpw?si=xWjrKqdhINyR45KJ")
+
 export URLS_MUSIC
 export URLS_AUDIO
 export URLS_VIDEO

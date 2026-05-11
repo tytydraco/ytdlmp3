@@ -20,7 +20,7 @@ Currently provided device-specific video converters:
 
 # Usage
 
-1. Configure your config in [config.sh](config.sh).
+1. Copy the [example config](config.example.sh) to [config.sh](config.sh).
 2. Run `./main.sh`.
 
 # Cookies
