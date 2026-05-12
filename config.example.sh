@@ -49,7 +49,7 @@ YTDLP_ARGS_MUSIC=(
     --audio-format aac
     --audio-quality 0
     --format "bestaudio/best"
-    --exec bash -c 'convert_file audio "$1"' _ {}
+    --exec 'bash -c "convert_file audio \"\$1\"" _ {}'
     --output "$OUT_DIR_MUSIC/%(playlist)s/%(uploader)s - %(title)s.%(ext)s"
 )
 YTDLP_ARGS_AUDIO=(
@@ -68,7 +68,7 @@ YTDLP_ARGS_AUDIO=(
     --audio-format aac
     --audio-quality 0
     --format "bestaudio/best"
-    --exec bash -c 'convert_file audio "$1"' _ {}
+    --exec 'bash -c "convert_file audio \"\$1\"" _ {}'
     --output "$OUT_DIR_AUDIO/%(playlist)s/%(title)s.%(ext)s"
 )
 YTDLP_ARGS_VIDEO=(
@@ -83,7 +83,7 @@ YTDLP_ARGS_VIDEO=(
     --windows-filenames
     --no-write-playlist-metafiles
     --mtime
-    --exec bash -c 'convert_file video "$1"' _ {}
+    --exec 'bash -c "convert_file video \"\$1\"" _ {}'
     --output "$OUT_DIR_VIDEO/%(playlist)s/%(title)s.%(ext)s"
 )
 
