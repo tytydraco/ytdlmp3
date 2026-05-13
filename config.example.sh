@@ -6,7 +6,7 @@ URLS_MUSIC=(
     # "https://music.youtube.com/playlist?list=..."
 )
 
-# URLs to download (audio, past 5 items since two weeks ago):
+# URLs to download (audio):
 URLS_AUDIO=(
     # "https://music.youtube.com/playlist?list=..."
 )
