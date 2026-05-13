@@ -23,6 +23,7 @@ OUT_DIR_VIDEO="out/video"
 
 # Download parameters:
 BROWSER_COOKIES="firefox"
+PRESERVE_ORIGINAL="false"
 
 # Converters:
 CONVERTERS_AUDIO=( # List of converters in lib/converters/audio.
@@ -94,6 +95,7 @@ export OUT_DIR_MUSIC
 export OUT_DIR_AUDIO
 export OUT_DIR_VIDEO
 export BROWSER_COOKIES
+export PRESERVE_ORIGINAL
 export FPS
 export CONVERTERS_AUDIO
 export CONVERTERS_VIDEO

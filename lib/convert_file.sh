@@ -31,7 +31,7 @@ function convert_file() {
     done
 
     # Remove original.
-    rm -f "$input_file"
+    [[ "$PRESERVE_ORIGINAL" != "true" ]] && rm -f "$input_file"
 }
 
 export -f convert_file
