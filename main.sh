@@ -8,7 +8,6 @@ CONFIG_FILE="$SCRIPT_DIR/config.sh"
 
 function source_libraries() {
     while IFS= read -r -d '' lib_file; do
-        
         source "${lib_file}"
     done < <(find "$LIB_DIR" -type f -name "*.sh" -print0 | sort -z)
 }
