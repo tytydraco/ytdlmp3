@@ -28,6 +28,7 @@ PRESERVE_ORIGINAL="false"
 # Converters:
 CONVERTERS_AUDIO=( # List of converters in lib/converters/audio.
     "convert_audio_adts_aac" # ADTS container for AAC.
+    "convert_audio_mp3" # MP3.
 )
 CONVERTERS_VIDEO=( # List of converters in lib/converters/video.
     "convert_video_agptek_m6_avi" # 30FPS AVI, 320x240, rotated 90 degrees counter-clockwise.
