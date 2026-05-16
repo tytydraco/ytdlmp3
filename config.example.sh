@@ -33,6 +33,7 @@ CONVERTERS_AUDIO=( # List of converters in lib/converters/audio.
 CONVERTERS_VIDEO=( # List of converters in lib/converters/video.
     "convert_video_agptek_m6_avi" # 30FPS AVI, 320x240, rotated 90 degrees counter-clockwise.
     "convert_video_ruizu_x52_amv" # 30FPS AMV, 128x128.
+    "convert_video_1080p_mkv" # Max-60FPS MKV, 1080p.
 )
 
 # Download configurations for yt-dlp:
