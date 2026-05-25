@@ -26,14 +26,14 @@ BROWSER_COOKIES="firefox"
 PRESERVE_ORIGINAL="false"
 
 # Converters:
-CONVERTERS_AUDIO=( # List of converters in lib/converters/audio.
-    "convert_audio_adts_aac" # ADTS container for AAC.
-    "convert_audio_mp3" # MP3.
+CONVERTERS_AUDIO=(
+    "convert_audio_adts_aac"
+    "convert_audio_mp3"
 )
-CONVERTERS_VIDEO=( # List of converters in lib/converters/video.
-    "convert_video_agptek_m6_avi" # 30FPS AVI, 320x240, rotated 90 degrees counter-clockwise.
-    "convert_video_ruizu_x52_amv" # 30FPS AMV, 128x128.
-    "convert_video_1080p_mkv" # Max-60FPS MKV, max-1080p.
+CONVERTERS_VIDEO=(
+    "convert_video_generic_mp4"
+    "convert_video_generic_avi"
+    "convert_video_generic_amv"
 )
 
 # Download configurations for yt-dlp:

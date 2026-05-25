@@ -3,13 +3,13 @@
 # shellcheck disable=SC1091
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="${SCRIPT_DIR}/lib"
+MP3C_DIR="${SCRIPT_DIR}/mp3c"
 CONFIG_FILE="$SCRIPT_DIR/config.sh"
 
-function source_libraries() {
-    while IFS= read -r -d '' lib_file; do
-        source "${lib_file}"
-    done < <(find "$LIB_DIR" -type f -name "*.sh" -print0 | sort -z)
+function load_mp3c_converters() {
+    while IFS= read -r -d '' src; do
+        source "$src"
+    done < <(find "$MP3C_DIR/converters" -type f -name "*.sh" -print0 | sort -z)
 }
 
 function main() {
@@ -18,8 +18,12 @@ function main() {
         exit 1
     fi
 
+    # Pull latest submodules.
+    git submodule init
+    git submodule update --remote
+
     source "$CONFIG_FILE"
-    source_libraries
+    load_mp3c_converters
 
     # Download the music for each URL.
     for url in "${URLS_MUSIC[@]}"; do
@@ -38,7 +42,7 @@ function main() {
 }
 
 export SCRIPT_DIR
-export LIB_DIR
+export MP3C_DIR
 export CONFIG_FILE
 
 # Execute the program.
