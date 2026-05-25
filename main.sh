@@ -2,7 +2,7 @@
 # shellcheck disable=SC1090
 # shellcheck disable=SC1091
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 MP3C_DIR="${SCRIPT_DIR}/mp3c"
 CONFIG_FILE="$SCRIPT_DIR/config.sh"
 
