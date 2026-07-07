@@ -11,14 +11,15 @@ case "$1" in
         ;;
     run)
         docker run \
+            --rm \
+            --user "$(id -u):$(id -g)" \
+            -e HOME="$HOME" \
             --name ytdlmp3 \
             --interactive \
             --tty \
-            --volume "$HOME/.mozilla/firefox:/root/.mozilla/firefox:ro" \
-            --volume "$SCRIPT_DIR/config.sh:/app/config.sh:ro" \
+            --volume "$SCRIPT_DIR:/app" \
+            --volume "$HOME:$HOME:ro" \
             ytdlmp3:latest
-        docker cp ytdlmp3:/app/out docker_out
-        docker rm -f ytdlmp3
         ;;
     clean)
         docker image rm ytdlmp3:latest
