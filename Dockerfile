@@ -18,7 +18,8 @@ RUN apt-get install -y --no-install-recommends \
     python3-venv \
     wine \
     wine64 \
-    winbind
+    winbind \
+    git
 
 RUN pip3 install --break-system-packages --no-cache-dir yt-dlp yt-dlp-ejs
 
