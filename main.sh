@@ -6,13 +6,17 @@ SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 MP3C_DIR="${SCRIPT_DIR}/mp3c"
 CONFIG_FILE="$SCRIPT_DIR/config.sh"
 
-FFMPEG_YP3="$MP3C_DIR/tools/ffmpeg/ffmpeg-yp3-patch/static/ffmpeg"
-ATJ_AVI_ENCODER="$MP3C_DIR/tools/ffmpeg/atj-avi-encoder/make-atj-avi-encoder.sh"
-
 function load_mp3c_converters() {
-    while IFS= read -r -d '' src; do
-        source "$src"
-    done < <(find "$MP3C_DIR/converters" -type f -name "*.sh" -print0 | sort -z)
+    local bk_script_dir="$SCRIPT_DIR"
+    local bk_config_file="$CONFIG_FILE"
+    
+    source "$MP3C_DIR/main.sh"
+    pull_yp3_binaries
+    source_converters
+
+    # Restore original variables.
+    SCRIPT_DIR="$bk_script_dir"
+    CONFIG_FILE="$bk_config_file"
 }
 
 function main() {
@@ -46,8 +50,6 @@ function main() {
 export SCRIPT_DIR
 export MP3C_DIR
 export CONFIG_FILE
-export FFMPEG_YP3
-export ATJ_AVI_ENCODER
 
 # Execute the program.
 [[ "${BASH_SOURCE[0]}" == "$0" ]] && main
