@@ -7,7 +7,7 @@ case "$1" in
         docker build \
             --no-cache \
             --tag ytdlmp3:latest \
-            .
+            "$SCRIPT_DIR"
         ;;
     run)
         docker run \
