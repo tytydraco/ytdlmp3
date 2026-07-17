@@ -19,37 +19,58 @@ function load_mp3c_converters() {
     CONFIG_FILE="$bk_config_file"
 }
 
+function download_all() {
+    local array_name_urls
+    local array_name_ytdlp_args
+    local array_name_converters
+    local var_name_out_dir
+    local files
+
+    for mode in music audio video; do
+        array_name_urls="URLS_${mode^^}[@]"
+        array_name_ytdlp_args="YTDLP_ARGS_${mode^^}[@]"
+        array_name_converters="CONVERTERS_${mode^^}[@]"
+
+        [[ -z "${!array_name_urls}" ]] && continue
+
+        for url in "${!array_name_urls}"; do
+            yt-dlp "${!array_name_ytdlp_args}" "$url"
+        done
+
+        [[ -z "${!array_name_converters}" ]] && continue
+
+        var_name_out_dir="OUT_DIR_${mode^^}"
+        [[ ! -d "${!var_name_out_dir}" ]] && continue
+
+        mapfile -d '' files < <(find "${!var_name_out_dir}" -type f -print0)
+        [[ "${#files[@]}" -eq 0 ]] && continue
+
+        for input_file in "${files[@]}"; do
+            for converter in "${!array_name_converters}"; do
+                eval "$converter" "$(printf '%q' "$input_file")"
+            done
+
+            [[ "$PRESERVE_ORIGINAL" != "true" ]] && rm "$input_file"
+        done
+    done
+}
+
 function main() {
     if [[ ! -f "$CONFIG_FILE" ]]; then
         echo "No config.sh file found."
         exit 1
     fi
 
-    # Pull latest submodules.
     git submodule update --init --recursive --remote
 
     source "$CONFIG_FILE"
     load_mp3c_converters
 
-    # Download the music for each URL.
-    for url in "${URLS_MUSIC[@]}"; do
-        yt-dlp "${YTDLP_ARGS_MUSIC[@]}" "$url"
-    done
-    
-    # Download the audio for each URL.
-    for url in "${URLS_AUDIO[@]}"; do
-        yt-dlp "${YTDLP_ARGS_AUDIO[@]}" "$url"
-    done
-
-    # Download the videos for each URL.
-    for url in "${URLS_VIDEO[@]}"; do
-        yt-dlp "${YTDLP_ARGS_VIDEO[@]}" "$url"
-    done
+    download_all
 }
 
 export SCRIPT_DIR
 export MP3C_DIR
 export CONFIG_FILE
 
-# Execute the program.
 [[ "${BASH_SOURCE[0]}" == "$0" ]] && main
