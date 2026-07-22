@@ -47,7 +47,7 @@ function download_all() {
 
         for input_file in "${files[@]}"; do
             for converter in "${!array_name_converters}"; do
-                eval "$converter" "$(printf '%q' "$input_file")"
+                "$converter" "$input_file"
             done
 
             [[ "$PRESERVE_ORIGINAL" != "true" ]] && rm "$input_file"
