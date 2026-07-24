@@ -50,7 +50,7 @@ function download_all() {
                 "$converter" "$input_file"
             done
 
-            [[ "$PRESERVE_ORIGINAL" != "true" ]] && rm "$input_file"
+            [[ "$PRESERVE_ORIGINAL" == "false" ]] && rm "$input_file"
         done
     done
 }
