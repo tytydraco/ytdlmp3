@@ -10,6 +10,7 @@ RUN apt-get install -y --no-install-recommends \
     curl \
     p7zip-full \
     ffmpeg \
+    gpac \
     nodejs \
     npm \
     aria2 \
