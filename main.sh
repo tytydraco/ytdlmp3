@@ -4,7 +4,6 @@
 readonly CONFIGS_DIR='configs'
 
 main() {
-	local -
 	shopt -s nullglob
 
 	[[ -d "$CONFIGS_DIR" ]] || return 0
