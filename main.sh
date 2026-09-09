@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC1090
 
-shopt -s nullglob
-
 readonly CONFIGS_DIR='configs'
 
 main() {
+	local -
+	shopt -s nullglob
+
 	[[ -d "$CONFIGS_DIR" ]] || return 0
 	
 	for config in "$CONFIGS_DIR"/*.sh; do
 		(
-			source "$config"
+			source "$config" || return 1
 
-			[[ -n "$URLS" ]] || return 1
-			[[ -n "$YTDLP_ARGS" ]] || return 1
+			(( ${#URLS[@]} )) || return 1
+			(( ${#YTDLP_ARGS[@]} )) || return 1
 
 			for url in "${URLS[@]}"; do
 				yt-dlp "${YTDLP_ARGS[@]}" "$url"
