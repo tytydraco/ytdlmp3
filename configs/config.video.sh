@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 URLS=(
-	# "https://youtube.com/playlist?list=..."
+	'https://music.youtube.com/watch?v=m-4M7u-Q45Y&si=H1DGt3q8V6rXYcIU'
 )
 
 YTDLP_ARGS=(

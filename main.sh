@@ -6,16 +6,12 @@ shopt -s nullglob
 readonly CONFIGS_DIR='configs'
 
 main() {
-	if [[ ! -f "$CONFIG_FILE" ]]; then
-		echo 'No config.sh file found.'
-		return 1
-	fi
-
-	[[ -d "$CONFIGS_DIR" ]] || return 1
+	[[ -d "$CONFIGS_DIR" ]] || return 0
 	
 	for config in "$CONFIGS_DIR"/*.sh; do
 		(
-			source "$config" || return 1
+			source "$config"
+
 			[[ -n "$URLS" ]] || return 1
 			[[ -n "$YTDLP_ARGS" ]] || return 1
 
