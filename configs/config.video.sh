@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-URLS=(
+readonly URLS=(
 	'https://music.youtube.com/watch?v=m-4M7u-Q45Y&si=H1DGt3q8V6rXYcIU'
 )
 
-YTDLP_ARGS=(
+readonly YTDLP_ARGS=(
 	--download-archive .archivevideo
 	--no-write-playlist-metafiles
 	--output "out/video/%(playlist)s/%(title)s.%(ext)s"
